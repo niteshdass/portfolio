@@ -1,0 +1,10 @@
+{
+    "about": 
+        {
+            "myBio" : "I am Nitesh. A computer science graduate, a passionate problem solver and a full-stack software developer. I have two years of professional experience as a software engineer. Currently working at AuthLab a renowned software firm based in Bangladesh. I love to make cool things. I have enthusiasm for a lot of things but programming and problem-solving gives me the dopamine I need. I am alwayse ready for collaboration, every Disruptive ideas are welcomed, Feel free to ping me if you have anything I can help building. Here are a few tools I am good at...",
+            "skills" : [
+                "Javascript", "NodeJS", "PHP", "Laravel", "Express Js", "GraphQl", "ReactJs", "React Native", "VueJs", "HTML5", "CSS3", "Git", "Android"
+            ]
+        }
+    
+}

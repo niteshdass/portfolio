@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Website Title -->
+    <title>Software Engineer/Developer</title>
+    <!-- Bootstrap -->
+    <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Font-Awesome -->
+    <link
+      href="assets/font-awesome/css/font-awesome.min.css"
+      rel="stylesheet"
+    />
+   
+    <!-- Theme Style -->
+    <link href="css/style.css" rel="stylesheet" />
+    <!-- Animations -->
+    <link href="css/animate.css" rel="stylesheet" />
+    <!-- Custom Favicon -->
+    <!-- <link href="img/favicon.ico" rel="shortcut icon" type="image/x-icon" /> -->
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="assets/html5shiv/html5shiv.js"></script>
+      <script src="assets/respond/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- load jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- crisp chatting bot -->
+    <script type="text/javascript">
+      window.$crisp = [];
+      console.log(localStorage.getItem("crisp_web_id"));
+      window.CRISP_WEBSITE_ID = localStorage.getItem("crisp_web_id");
+      (function () {
+        d = document;
+        s = d.createElement("script");
+        s.src = "https://client.crisp.chat/l.js";
+        s.async = 1;
+        d.getElementsByTagName("head")[0].appendChild(s);
+      })();
+      $crisp.push(["safe", true])
+    </script>
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+     <!-- app file -->
+     <script src="root.js" type="text/babel"></script>
+  </head>
+  <body>
+    <!-- ****************************** Preloader ************************** -->
+    <div id="root"></div>
+
+    <!-- root class -->
+    <script type="text/babel">
+
+      function Hero() {
+        const [info, setInfo] = React.useState({});
+        const [hi,setHi] = React.useState('HI, I,am');
+        const [name, setName] = React.useState('AKM ELIAS');
+        const [profession, setProfession] = React.useState('Software Engineer');
+        const [email, setEmail] = React.useState('akmelias11@gmail.com');
+        const [heroInfos, setHeroInfos] = React.useState([]);
+        const [socials, setSocials] = React.useState(
+              []);
+        
+        React.useEffect(() => {
+          fetch('personal.json')
+            .then(response => {
+              return response.json();
+            })
+            .then(data => {
+              setInfo(data.info);
+              setHeroInfos(data.info.heroInfos);
+              setSocials(data.info.socials);
+              localStorage.setItem("crisp_web_id", data.info.crisp_web_id);
+            })
+        }, []);
+        return (
+          <div className="hero">
+            <div className='hero-navbar'>
+              <img src="img/AE-logos_white.png" alt="logo"/>
+              <div style={{"display": "flex", "alignItems": "center"}}>
+                <ol>    
+                  <li><a href="#about">About</a></li>
+                  <li><a href="#works">Works</a></li>
+                </ol>
+                // <a href="" className="blogs-li" target="blank">Blog</a>
+              </div>
+            </div>
+            <section id="home" className="hero-container">
+              <div className="hero-left">
+                <div className="hero-title">
+                  <span>{info.hi}</span>
+                  <h1>{info.name}</h1>
+                  <h4>{info.profession}</h4>
+                </div>
+                <ul className="hero-info">        
+                  {
+                    
+                    heroInfos.map((info, index) => {
+                      return (
+                        <li key={index}>
+                          <i className={`glyphicon ${info.icon}`}/>
+                          <a>{info.title}</a>
+                        </li>
+                      )
+                    })
+                  } 
+                  <li>
+                     <i className="glyphicon glyphicon-file"/>
+                     <a href="my_cv.pdf" className="resume-a" target="blank">Resume</a>
+                  </li>
+                </ul>
+                <ul className="hero-socials">
+                  {
+                    socials.map((social, index) => {
+                      return (
+                        <li key={index}>
+                          <a href={social.href} target="_blank"><i className={`fa ${social.icon}`} /></a>  
+                        </li>
+                      )
+                    })
+                  }
+                </ul>
+              </div>
+              <div className="hero-right">
+                <img src={info.profile} alt="hero-image"/>
+              </div>
+            </section>
+          </div>
+        )
+      }
+      function About(){
+        const [myBio, setmyBio] = React.useState("");
+        const [skills, setSkills] = React.useState([]);
+
+        function openCrisp(){
+          $crisp.push(['do', 'chat:open'])
+        }
+
+        React.useEffect(() => {
+          fetch('about.json')
+            .then(response => {
+              return response.json();
+            })
+            .then(data => {
+              console.log(data)
+              setmyBio(data.about.myBio);
+              setSkills(data.about.skills);
+            })
+        }, []);
+
+        return (
+          <section className="about" id="about">
+              <img src="img/about.png" alt="about" />
+              <div className="about-info">
+                <h3>About Me</h3>
+                <span className="hello">Hello,</span>
+                <p>{myBio}</p>
+                <ul className="skills">
+                  {skills.map((skill, index) => {
+                    return <li className='skill' key={index}><span>{skill}</span></li>
+                  })}
+                </ul>
+                <button className='textme-button' onClick={openCrisp}>Text Me</button>
+              </div>
+          </section>
+        )
+      }
+      function Works(){
+        const [data, setData] = React.useState({});
+        const [categories, setCategories]  = React.useState(['all']);
+        const [projects, setProjects] = React.useState([]);
+        const [currentCategory, setCurrentCategory] = React.useState('all');
+        const [filteredProjects, setFilteredProjects] = React.useState([]);
+
+        React.useEffect(() => {
+          fetch('data.json')
+            .then(response => {
+              return response.json();
+            })
+            .then(data => {
+              setData(data);
+              setProjects(data.projects);
+              const res = Object.values(data.projects.reduce((a,{category})=>{
+                a[category]=category
+                return a;
+              },{}))
+              let cat = categories.concat(res);
+              setCategories(cat);
+              // setFilteredProjects());
+              // console.log('filteredProjects: ', datas, 'flt: ', filteredProjects);
+            })
+        }, []);
+
+        // category wise filter projects...
+        React.useEffect(() =>
+        {
+          if(currentCategory === 'all') {
+            setFilteredProjects(projects);
+          } else {
+             setFilteredProjects(projects.filter((project => project.category === currentCategory)));
+          } 
+        } ,[projects, currentCategory])
+
+        function filterByCategory(e, category){
+          setCurrentCategory(category);
+        }
+
+        return (
+          <section id="works" className="works">
+            <h1><span className='learning'>Practice </span> Works</h1>
+            <div className="works-container">
+              <ul>
+                {
+                  categories.map((category, index) => {
+                    return <li className={category == currentCategory ? "selected": ""} onClick={(e) => filterByCategory(e,category)}>{category}</li>
+                  })
+                }
+              </ul>
+              <div className="works-cards">
+                {
+                  filteredProjects.map((project, index) => {
+                     return (
+                       <div className="works-card" key={index}>
+                        <img src={project.img} alt={project.title}/>
+                        <div className='card-content'>
+                          <div className='card-content-info'>
+                            <h4>{project.title}</h4>
+                            <p>{project.description}</p>
+                          </div>
+                          <div className='card-links'>
+                          {
+                            project.links.map((link, i) => {
+                              return (
+                                <a href={link.url} target="_blank" className="button">{link.title}</a>
+                              )
+                            })
+                          }
+                          </div>
+                        </div>
+                      </div>
+                     )
+                  })
+                }
+              </div>
+            </div>
+          </section>
+        )
+      }
+      function App(){
+        
+        return (
+          <div>
+            <Hero />
+            <About />
+            <Works />
+          </div>
+        )
+      }
+
+      ReactDOM.render(
+          <App />, document.getElementById('root'))
+  </script>
+  <script>
+      $(document).ready(function() {
+      //Preloader
+        console.log("lalala")
+        preloaderFadeOutTime = 3000;
+        function hidePreloader() {
+          var preloader = $('.spinner-wrapper');
+          preloader.fadeOut(preloaderFadeOutTime);
+        }
+        hidePreloader();
+      });
+    </script>
+  </body>
+  <!--CSS Spinner-->
+  <div class="spinner-wrapper">
+    <div class="spinner"></div>
+  </div>
+</html>

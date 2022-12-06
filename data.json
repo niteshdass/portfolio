@@ -1,0 +1,126 @@
+{
+    "projects": [
+        {
+            "title" : "Snake game",
+            "description" : "A simple snake game with react made for learning react in depth. ~React",
+            "category" : "app",
+            "img": "img/snake-game-with-react.png",
+            "links": [
+                {"title": "github", "url": "https://github.com/bindaas/snake_with_react"},
+                {"title": "live", "url": "https://snake.akmelias.com"}
+            ]
+        },
+        {
+            "title" : "Unbeatable Tic Tac Toe",
+            "description": "I contributed to make the bot unbetable to one of my senior's project. ~Vue",
+            "category" : "web",
+            "img": "img/tic-tac-toe.png",
+            "links": [
+                {"title": "github", "url": "https://github.com/AkmElias/tic-tac-toe"},{"title": "live", "url": "https://tic-tac-toe-vuejs.netlify.app/"}
+            ]
+        },
+        {
+            "title" : "covid-19-tracker",
+            "description": "An web app for tracking the global covid-19 statistics. ~React",
+            "category" : "web",
+            "img": "img/covid-19-tracker.png",
+            "links": [
+                {"title": "github", "url": "https://github.com/AkmElias/covid-19-tracker"},
+                {"title": "live", "url": "https://covid-19-tracker-b4f4e.web.app/"}
+            ]
+        },
+        {
+            "title" : "WordBook",
+            "description": "An android application for Bangali to English Vocabulary translation. ~Android",
+            "category" : "mobile-app",
+            "img": "img/dictionary-app.png",
+            "links": [
+                {"title": "github", "url": "https://github.com/AkmElias/WordBook"},
+                {"title": "live", "url": "https://play.google.com/store/apps/details?id=com.elias.wordbook"}
+            ]
+        },
+        {
+            "title" : "Toss Order & Team",
+            "description": "A simple fun android application to make toss , order and make random teams. ~Android",
+            "category" : "mobile-app",
+            "img": "img/toss-team-order.png",
+            "links": [
+                {"title": "github", "url": "https://github.com/AkmElias/Toss_Order_eam"},
+                {"title": "live", "url": "https://play.google.com/store/apps/details?id=com.hellologic.toss_order_team"}
+            ]
+        },
+        {
+            "title" : "LeetCode",
+            "description": "Problem solving and programming continues. Practice and attend weekly contests. ~C++",
+            "category" : "programming",
+            "img": "img/leetcode-profile.png",
+            "links": [
+                {"title": "profile", "url": "https://leetcode.com/akmelias11/"}
+            ]
+        },
+        {
+            "title" : "UVA Online judge",
+            "description": "University days problem solvings. Increases capcity of solving complex problems. ~C++",
+            "category" : "programming",
+            "img": "img/uva-profile.png",
+            "links": [
+                {"title": "profile", "url": "https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=15"}
+            ]
+        },
+        {
+            "title": "Data structure and Algorithms - certificate",
+            "description": "A freecodeamp course, covering from the basics of Javascript to advance data tructure and algorithms.",
+            "category": "programming",
+            "img": "img/freecodecamp-javascript-algorithm-datastructures.png",
+            "links": [
+                {"title": "veiw", "url": "https://www.freecodecamp.org/certification/akmelias/javascript-algorithms-and-data-structures"}
+            ]
+        },
+        {
+            "title": "Frontend libraries - certificate",
+            "description": "A freecodeamp course (300 hours), covering all primary frontend libraries.",
+            "category": "web",
+            "img": "img/freecodecamp-frontend-libraries.png",
+            "links": [
+                {"title": "veiw", "url": "https://www.freecodecamp.org/certification/akmelias/front-end-development-libraries"}
+            ]
+        },
+        {
+            "title": "Responsive web design - certificate",
+            "description": "A freecodeamp course (300 hours), covering all the aspects of responsive web design",
+            "category": "web",
+            "img": "img/freecodecamp-responsive-web-design.png",
+            "links": [
+                {"title": "veiw", "url": "https://www.freecodecamp.org/certification/akmelias/responsive-web-design"}
+            ]
+        }
+    ],
+    "experiences": [
+        {
+            "title": "Bachelor of Science in Computer Science and Engineering",
+            "period": "2014 - 2019",
+            "company": "Metropolitan University, sylhet"
+        },
+        {
+            "title": "Junior Software Engineer",
+            "period": "September 2019 - March 2020",
+            "company": "Connecting community LTD, Sylhet"
+        },
+        {
+            "title": "Career Gap, Personal reasons",
+            "period":"Upto December 2020",
+            "company": "Home"
+        },
+        {
+            "title": "Software Engineer",
+            "period": "December 2020 - November 2021",
+            "company": "Bengal Infotech, Sylhet"
+        },
+        {
+            "title": "Software Engineer",
+            "period": "Decmber 2021 - Continues",
+            "company": "Authlab, Sylhet"
+        }
+    ],
+    "end": "end here"
+}
